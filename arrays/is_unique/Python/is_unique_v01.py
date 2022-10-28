@@ -3,8 +3,9 @@
 
 import os
 import sys
+import unittest
 
-def version01(string):
+def is_unique(string):
 
     # since there are only 128 ASCII chars
     # if the string's length exceeds 128
@@ -30,11 +31,22 @@ def version01(string):
 
         return True
 
+class Test(unittest.TestCase):
+    dataT = [('abcd'), ('s4fad'), ('')]
+    dataF = [('23ds2'), ('hb 627jh=j ()')]
 
-def version02(string: str) -> bool:
-    return len(list(dict.fromkeys(string).keys())) == len(list(string))
+    def test_is_unique(self):
+        # true check
+        for test_string in self.dataT:
+            actual = is_unique(test_string)
+            self.assertTrue(actual)
+        # false check
+        for test_string in self.dataF:
+            actual = is_unique(test_string)
+            self.assertFalse(actual)
 
-
+if __name__ == "__main__":
+    unittest.main()
 
 
 
