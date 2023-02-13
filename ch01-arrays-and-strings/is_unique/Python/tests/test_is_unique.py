@@ -40,10 +40,16 @@ def test_runner(func1, func2):
 
         delta_percent = percent_faster(e1, e2)
 
+        # results list of execution time of each function and percent faster e1 is over e2
         results[exponent - 1] = [str(e1), str(e2), str(delta_percent)]
-        #print("{: >20} {: >20} {: >20}".format(e1, e2, delta_percent))
-        #print(str(e1).ljust(10), str(e2).ljust(12), str(round(delta_percent, 2)).rjust(20), str(res1).rjust(8), str(res2).rjust(8), end=' \n')
+
+        # print("{: >20} {: >20} {: >20}".format(e1, e2, delta_percent))
+        # print(str(e1).ljust(10), 
+        # str(e2).ljust(12), 
+        # str(round(delta_percent, 2)).rjust(20), 
+        # str(res1).rjust(8), str(res2).rjust(8), end=' \n')
     return results
+
 
 def percent_faster(t0, t_final):
     return ((t0 - t_final) / t_final) * 100 
@@ -56,8 +62,10 @@ def print_results(results):
 
 
 if __name__ == "__main__":
-    res= test_runner(is_unique.version01, is_unique.version02)
+    res = test_runner(is_unique.is_unique_v01, is_unique.is_unique_v02)
 
+
+    print(row)
     for row in res:
         print("{: >30} {: >30} {: >30}".format(*row))
 
